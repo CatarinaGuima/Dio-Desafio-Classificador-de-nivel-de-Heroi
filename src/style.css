@@ -1,0 +1,342 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "MedievalSharp";
+  src: url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
+}
+
+body {
+  background: #0c0c14
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" stitchTiles="stitch"></feTurbulence></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.1"></rect></svg>');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: "MedievalSharp", cursive;
+  color: #e0d0a8;
+  position: relative;
+  
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: radial-gradient(circle at center, transparent 40%, #0c0c14 90%);
+  pointer-events: none;
+}
+
+.container {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="rgba(30,25,35,0.85)" rx="20" ry="20"/><path d="M0,20 Q0,0 20,0 L380,0 Q400,0 400,20 L400,380 Q400,400 380,400 L20,400 Q0,400 0,380 Z" fill="none" stroke="%23d4af37" stroke-width="3"/></svg>');
+  background-size: cover;
+  border: 2px solid #d4af37;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4),
+    inset 0 0 50px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  max-width: 550px;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 15px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+h1 {
+  color: #d4af37;
+  margin-bottom: 25px;
+  font-size: 32px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.input-group {
+  margin-bottom: 25px;
+  text-align: left;
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #d4af37;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  font-size: 18px;
+}
+
+input {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(20, 15, 25, 0.7);
+  border: 2px solid #5d4f2a;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #e0d0a8;
+  font-family: "MedievalSharp", cursive;
+  transition: all 0.3s;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+input:focus {
+  border-color: #d4af37;
+  outline: none;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5),
+    inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+input::placeholder {
+  color: #8a7a59;
+}
+
+button {
+  background: linear-gradient(to bottom, #d4af37, #8b6914);
+  color: #1e1919;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+  margin-top: 15px;
+  font-family: "MedievalSharp", cursive;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(to bottom, #e6c158, #9c7a1c);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.result {
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 12px;
+  background: rgba(20, 15, 25, 0.7);
+  display: none;
+  border: 2px solid #5d4f2a;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.result h2 {
+  color: #d4af37;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  font-size: 24px;
+}
+
+.result p {
+  font-size: 20px;
+  color: #e0d0a8;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.level-display {
+  font-weight: bold;
+  font-size: 26px;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.level-Ferro {
+  color: #9e9e9e;
+  background: linear-gradient(to bottom, #5a5a5a, #3a3a3a);
+  text-shadow: 1px 1px 2px #000;
+}
+.level-Bronze {
+  color: #cd7f32;
+  background: linear-gradient(to bottom, #8c6242, #5c422c);
+  text-shadow: 1px 1px 2px #000;
+}
+.level-Prata {
+  color: #c0c0c0;
+  background: linear-gradient(to bottom, #a6a6a6, #6e6e6e);
+  text-shadow: 1px 1px 2px #000;
+}
+.level-Ouro {
+  color: #ffd700;
+  background: linear-gradient(to bottom, #d4af37, #8b6914);
+  text-shadow: 1px 1px 2px #6e5500;
+}
+.level-Platina {
+  color: #e5e4e2;
+  background: linear-gradient(to bottom, #d8d8d8, #a0a0a0);
+  text-shadow: 1px 1px 2px #000;
+}
+.level-Ascendente {
+  color: #9370db;
+  background: linear-gradient(to bottom, #7b68ee, #483d8b);
+  text-shadow: 1px 1px 2px #000;
+}
+.level-Imortal {
+  color: #ff2400;
+  background: linear-gradient(to bottom, #dc143c, #8b0000);
+  text-shadow: 1px 1px 2px #000;
+}
+.level-Radiante {
+  color: #fff;
+  background: linear-gradient(to bottom, #fff, #b9f2ff);
+  text-shadow: 1px 1px 2px #0077be, 0 0 10px #fff, 0 0 20px #fff;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6;
+  }
+  to {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6, 0 0 40px #0073e6;
+  }
+}
+
+.table-container {
+  margin-top: 30px;
+  overflow-x: auto;
+  background: rgba(20, 15, 25, 0.7);
+  border-radius: 12px;
+  padding: 15px;
+  border: 2px solid #5d4f2a;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.table-container h3 {
+  color: #d4af37;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  font-size: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #5d4f2a;
+  color: #e0d0a8;
+}
+
+th {
+  background-color: rgba(212, 175, 55, 0.2);
+  color: #d4af37;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(30, 25, 35, 0.5);
+}
+
+.instructions {
+  margin-top: 25px;
+  padding: 20px;
+  background: rgba(20, 15, 25, 0.7);
+  border-radius: 12px;
+  text-align: left;
+  border: 2px solid #5d4f2a;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.instructions h3 {
+  color: #d4af37;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.instructions ul {
+  padding-left: 25px;
+  list-style-type: none;
+}
+
+.instructions li {
+  margin-bottom: 10px;
+  color: #e0d0a8;
+  position: relative;
+  padding-left: 25px;
+}
+
+.instructions li::before {
+  content: "➜";
+  position: absolute;
+  left: 0;
+  color: #d4af37;
+}
+
+.decoration {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="10" viewBox="0 0 100 10"><path d="M0,5 Q20,0 40,5 T80,5 T100,5" fill="none" stroke="%23d4af37" stroke-width="1"/></svg>')
+    repeat-x;
+  bottom: -10px;
+  left: 0;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  input,
+  button {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🏆 Classificador de Nível de Herói 🏆</h1>
+
+      <div class="input-group">
+        <label for="heroName">Nome do Herói:</label>
+        <input type="text" id="heroName" placeholder="Digite o nome do herói" />
+      </div>
+
+      <div class="input-group">
+        <label for="heroXP">Experiência (XP) do Herói:</label>
+        <input
+          type="number"
+          id="heroXP"
+          placeholder="Digite a quantidade de XP"
+          min="0"
+        />
+      </div>
+
+      <button onclick="classificarHeroi()">Classificar Herói</button>
+
+      <div id="result" class="result">
+        <h2>Resultado da Classificação</h2>
+        <p>
+          O Herói de nome <strong id="heroNameResult"></strong> está no nível de
+        </p>
+        <p id="heroLevel" class="level-display"></p>
+      </div>
+
+      <div class="table-container">
+        <h3>Tabela de Classificação</h3>
+        <table>
+          <tr>
+            <th>Intervalo de XP</th>
+            <th>Nível</th>
+          </tr>
+          <tr>
+            <td>Menos de 1.000</td>
+            <td>Ferro</td>
+          </tr>
+          <tr>
+            <td>1.001 a 2.000</td>
+            <td>Bronze</td>
+          </tr>
+          <tr>
+            <td>2.001 a 5.000</td>
+            <td>Prata</td>
+          </tr>
+          <tr>
+            <td>5.001 a 7.000</td>
+            <td>Ouro</td>
+          </tr>
+          <tr>
+            <td>7.001 a 8.000</td>
+            <td>Platina</td>
+          </tr>
+          <tr>
+            <td>8.001 a 9.000</td>
+            <td>Ascendente</td>
+          </tr>
+          <tr>
+            <td>9.001 a 10.000</td>
+            <td>Imortal</td>
+          </tr>
+          <tr>
+            <td>Maior ou igual a 10.001</td>
+            <td>Radiante</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="instructions">
+        <h3>Instruções:</h3>
+        <ul>
+          <li>Digite o nome do seu herói</li>
+          <li>Informe a quantidade de experiência (XP) que ele possui</li>
+          <li>Clique no botão "Classificar Herói"</li>
+          <li>Veja o resultado e em qual nível seu herói se encontra</li>
+        </ul>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
