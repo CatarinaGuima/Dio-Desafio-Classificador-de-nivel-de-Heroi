@@ -262,6 +262,8 @@ table {
   margin-top: 15px;
 }
 
+
+
 th,
 td {
   padding: 12px 15px;
@@ -278,6 +280,10 @@ th {
 
 tr:nth-child(even) {
   background-color: rgba(30, 25, 35, 0.5);
+}
+
+tr:hover {
+  background-color: rgba(212, 175, 55, 0.1);
 }
 
 .instructions {
